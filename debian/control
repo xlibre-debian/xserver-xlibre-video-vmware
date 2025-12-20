@@ -1,7 +1,7 @@
 Source: xserver-xlibre-video-vmware
 Section: x11
 Priority: optional
-Maintainer: apebl <a@pebl.cc>
+Maintainer: NexusSfan <nexussfan@duck.com>
 Build-Depends:
  debhelper-compat (= 12),
  quilt,
@@ -9,7 +9,7 @@ Build-Depends:
  xserver-xlibre-dev (>= 2:1.9.4),
  x11proto-dev,
  xutils-dev (>= 1:7.5+4),
- libdrm-dev [!hurd-i386],
+ libdrm-dev [!hurd-any],
  libudev-dev [linux-any],
  libxext-dev,
  libx11-dev,
