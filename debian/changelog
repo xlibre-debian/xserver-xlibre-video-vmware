@@ -1,3 +1,9 @@
+xserver-xlibre-video-vmware (2:25.0.0-1) unstable; urgency=medium
+
+  * New upstream version 25.0.0
+
+ -- apebl <a@pebl.cc>  Sat, 20 Dec 2025 16:50:16 -0800
+
 xserver-xlibre-video-vmware (1:13.4.0.3-2) unstable; urgency=medium
 
   * Add conditional build-dep libxatracker-dev
