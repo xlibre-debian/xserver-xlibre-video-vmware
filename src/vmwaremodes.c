@@ -31,13 +31,10 @@
  *      Provide additional modes for the driver.
  */
 
-#ifdef HAVE_CONFIG_H
 #include "config.h"
-#endif
+
 #include "xf86.h"
-#ifdef HAVE_XORG_SERVER_1_2_0
 #include <xf86Modes.h>
-#endif
 #include "vm_basic_types.h"
 #include "vmware.h"
 #include "common_compat.h"
@@ -77,7 +74,6 @@ vmwareAddDefaultMode(ScrnInfoPtr pScrn, uint32 dwidth, uint32 dheight)
 	goto out_err;
     }
 
-#ifdef HAVE_XORG_SERVER_1_2_0
     if (dwidth && dheight) {
 	MonPtr monitor = pScrn->monitor;
 	DisplayModePtr mode = NULL;
@@ -95,7 +91,7 @@ vmwareAddDefaultMode(ScrnInfoPtr pScrn, uint32 dwidth, uint32 dheight)
 
 	snprintf(name, sizeof(name), VMW_DEFLT_MODE_NAME, dwidth, dheight);
 
-	dynModeName = XNFstrdup(name);
+	dynModeName = strdup(name);
 	if (!dynModeName || !pScrn->display)
 	    goto out_err;
 
@@ -157,9 +153,6 @@ vmwareAddDefaultMode(ScrnInfoPtr pScrn, uint32 dwidth, uint32 dheight)
     }
 
     *monitorModes = xf86ModesAdd(*monitorModes, modes);
-#else
-    (void) modes;
-#endif
     return;
   out_err:
     xf86DrvMsg(pScrn->scrnIndex, X_ERROR, "Failed to add default mode.");

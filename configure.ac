@@ -22,10 +22,10 @@
 
 # Initialize Autoconf
 AC_PREREQ([2.60])
-AC_INIT([xf86-video-vmware],
-        [13.4.0],
-        [https://gitlab.freedesktop.org/xorg/driver/xf86-video-vmware/-/issues],
-        [xf86-video-vmware])
+AC_INIT([xlibre-xf86-video-vmware],
+        [25.0.0],
+        [https://github.com/X11Libre/xf86-video-vmware/issues],
+        [xlibre-xf86-video-vmware])
 AC_CONFIG_SRCDIR([Makefile.am])
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_AUX_DIR(.)
@@ -73,44 +73,10 @@ XORG_DRIVER_CHECK_EXT(XV, videoproto)
 
 # Obtain compiler/linker options for the driver dependencies
 PKG_CHECK_MODULES(XORG, [xorg-server >= 1.18 xproto fontsproto $REQUIRED_MODULES])
-PKG_CHECK_EXISTS([xorg-server >= 1.1.0],
-                 [AC_DEFINE([HAVE_XORG_SERVER_1_1_0], 1,
-                 [Has version 1.1.0 or greater of the Xserver])])
-
-PKG_CHECK_EXISTS([xorg-server >= 1.2.0],
-                 [AC_DEFINE([HAVE_XORG_SERVER_1_2_0], 1,
-                 [Has version 1.2.0 or greater of the Xserver])])
-
-PKG_CHECK_EXISTS([xorg-server >= 1.4.99],
-                 [AC_DEFINE([HAVE_XORG_SERVER_1_5_0], 1,
-                 [Has version 1.5.0 or greater of the Xserver])])
-
-PKG_CHECK_EXISTS([xorg-server >= 1.7.0],
-                 [AC_DEFINE([HAVE_XORG_SERVER_1_7_0], 1,
-                 [Has version 1.7.0 or greater of the Xserver])
-		 BUILD_VMWGFX=yes],[BUILD_VMWGFX=no])
-
-PKG_CHECK_EXISTS([xorg-server >= 1.12.0],
-                 [AC_DEFINE([HAVE_XORG_SERVER_1_12_0], 1,
-                 [Has version 1.12.0 or greater of the Xserver])])
 
 # Obtain compiler/linker options for the vmwarectrl client tool
 PKG_CHECK_MODULES(X11, x11 xext)
-
-# Checks for libraries.
-
-save_CFLAGS="$CFLAGS"
-CFLAGS="$XORG_CFLAGS"
-AC_CHECK_DECL(XSERVER_LIBPCIACCESS,
-             [XSERVER_LIBPCIACCESS=yes], [XSERVER_LIBPCIACCESS=no],
-             [#include "xorg-server.h"])
-CFLAGS="$save_CFLAGS"
-
-if test x$XSERVER_LIBPCIACCESS = xyes; then
-	PKG_CHECK_MODULES([PCIACCESS], [pciaccess >= 0.8.0])
-fi
-
-AM_CONDITIONAL(XSERVER_LIBPCIACCESS, test "x$XSERVER_LIBPCIACCESS" = xyes)
+PKG_CHECK_MODULES([PCIACCESS], [pciaccess >= 0.8.0])
 
 AC_SUBST([moduledir])
 
@@ -144,9 +110,6 @@ if test x$BUILD_VMWGFX = xyes; then
 			 [AC_DEFINE([HAVE_LIBDRM_2_4_96], 1,
 			 [Has version 2.4.96 or greater of libdrm])])
 fi
-
-DRIVER_NAME=vmware
-AC_SUBST([DRIVER_NAME])
 
 AC_MSG_CHECKING([whether to build Kernel Mode Setting and 3D])
 if test x$BUILD_VMWGFX = xyes; then

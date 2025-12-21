@@ -30,11 +30,7 @@
  *
  *      The implementation of the Xinerama protocol extension.
  */
-
-
-#ifdef HAVE_CONFIG_H
 #include "config.h"
-#endif
 
 #include <xorg-server.h>
 
@@ -45,11 +41,6 @@
 #include <X11/extensions/panoramiXproto.h>
 
 #include "vmware.h"
-
-#ifndef HAVE_XORG_SERVER_1_5_0
-#include <xf86_ansic.h>
-#include <xf86_libc.h>
-#endif
 
 /*
  *----------------------------------------------------------------------------

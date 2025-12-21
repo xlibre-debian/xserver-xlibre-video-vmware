@@ -28,10 +28,7 @@
  * Author: Jakob Bornecrantz <wallbraker@gmail.com>
  * Author: Thomas Hellstrom <thellstrom@vmware.com>
  */
-
-#ifdef HAVE_CONFIG_H
 #include "config.h"
-#endif
 
 #include <unistd.h>
 #include <fcntl.h>
@@ -52,9 +49,6 @@
 #include "xf86cmap.h"
 #include "xf86xv.h"
 #include "xorgVersion.h"
-#ifndef XSERVER_LIBPCIACCESS
-#error "libpciaccess needed"
-#endif
 
 #include <pciaccess.h>
 

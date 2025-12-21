@@ -31,11 +31,7 @@
  *      The implementation of the VMWARE_CTRL protocol extension that
  *      allows X clients to communicate with the driver.
  */
-
-
-#ifdef HAVE_CONFIG_H
 #include "config.h"
-#endif
 
 #include "dixstruct.h"
 #include "extnsionst.h"
@@ -45,11 +41,6 @@
 
 #include "vmware.h"
 #include "vmwarectrlproto.h"
-
-#ifndef HAVE_XORG_SERVER_1_5_0
-#include <xf86_ansic.h>
-#include <xf86_libc.h>
-#endif
 
 /*
  *----------------------------------------------------------------------------
@@ -310,9 +301,7 @@ VMwareCtrlDoSetTopology(ScrnInfoPtr pScrn,
 	     */
 
             vmwareNextXineramaState(pVMWARE);
-#ifdef HAVE_XORG_SERVER_1_2_0
             RRSendConfigNotify(pScrn->pScreen);
-#endif
             vmwareSendSVGACmdUpdateFullScreen(pVMWARE);
 
             return TRUE;

@@ -24,17 +24,10 @@
  *
  * Author: Unknown at vmware
  */
-#ifdef HAVE_CONFIG_H
 #include "config.h"
-#endif
 
 #include <xf86.h>
 #include "vmware_common.h"
-
-#ifndef HAVE_XORG_SERVER_1_5_0
-#include <xf86_ansic.h>
-#include <xf86_libc.h>
-#endif
 
 static int
 VMWAREParseTopologyElement(ScrnInfoPtr pScrn,
