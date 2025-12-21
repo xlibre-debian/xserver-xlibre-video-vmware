@@ -32,11 +32,7 @@
  *      See http://www.xfree86.org/current/DESIGN16.html
  *
  */
-
-
-#ifdef HAVE_CONFIG_H
 #include "config.h"
-#endif
 
 #include "vmware.h"
 #include "vmware_common.h"
@@ -47,11 +43,6 @@
 #include "common_compat.h"
 
 #include <X11/extensions/Xv.h>
-
-#ifndef HAVE_XORG_SERVER_1_5_0
-#include <xf86_ansic.h>
-#include <xf86_libc.h>
-#endif
 
 static const char xv_adapt_name[] = "VMWare Overlay Video Engine";
 static const char xv_image_name[] = "XV_IMAGE";

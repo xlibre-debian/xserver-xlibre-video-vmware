@@ -28,9 +28,7 @@
  * Author: Jakob Bornecrantz <wallbraker@gmail.com>
  * Author: Thomas Hellstrom <thellstrom@vmware.com>
  */
-#ifdef HAVE_CONFIG_H
 #include "config.h"
-#endif
 
 #include <unistd.h>
 #include <string.h>
@@ -48,12 +46,7 @@
 #include "xf86Modes.h"
 #include "vmwgfx_saa.h"
 
-#ifdef HAVE_XEXTPROTO_71
 #include <X11/extensions/dpmsconst.h>
-#else
-#define DPMS_SERVER
-#include <X11/extensions/dpms.h>
-#endif
 
 struct crtc_private
 {
