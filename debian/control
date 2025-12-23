@@ -15,8 +15,8 @@ Build-Depends:
  libx11-dev,
  libxatracker-dev [linux-any] <xatracker>,
 Standards-Version: 4.6.2
-Vcs-Git: https://github.com/xlibre-deb/xserver-xlibre-video-vmware.git
-Vcs-Browser: https://github.com/xlibre-deb/xserver-xlibre-video-vmware
+Vcs-Git: https://github.com/xlibre-debian/xserver-xlibre-video-vmware.git
+Vcs-Browser: https://github.com/xlibre-debian/xserver-xlibre-video-vmware
 Homepage: https://github.com/X11Libre
 
 Package: xserver-xlibre-video-vmware
